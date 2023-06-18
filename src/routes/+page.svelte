@@ -56,17 +56,17 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td class="text-left"
-							>Infinity Approve (gas savings) <a href="/documentation" class="link-primary">REF</a
-							></td
-						>
+						<td class="text-left">
+							Infinity Approve (gas savings) 
+							<a href="/documentation" class="link-primary">REF</a>
+						</td>
 						<td>&#x2715;</td>
 						<td>&#x2713;</td>
 					</tr>
 					<tr>
 						<td class="text-left">
 							Improved interface for wrapping and unwrapping <a
-								href="/documentation"
+								href="/documentation/improvements#better-ux"
 								class="link-primary">REF</a
 							></td
 						>
@@ -97,7 +97,7 @@
 								rel="noreferrer"
 							>
 								ERC-2612 / ERC20Permit
-							</a> <a href="/documentation" class="link-primary">REF</a>
+							</a> <a href="/documentation/improvements#erc20-permit" class="link-primary">REF</a>
 						</td>
 						<td>&#x2715;</td>
 						<td>&#x2713;</td>
@@ -111,7 +111,7 @@
 								rel="noreferrer"
 							>
 								ERC1363: Payable Token, Call Chaining
-							</a> <a href="/documentation" class="link-primary">REF</a>
+							</a> <a href="/documentation/improvements#payable-token" class="link-primary">REF</a>
 						</td>
 						<td>&#x2715</td>
 						<td>&#x2713;</td>
@@ -126,7 +126,7 @@
 								rel="noreferrer"
 							>
 								ERC3156: Flash Loans
-							</a> <a href="/documentation" class="link-primary">REF</a>
+							</a> <a href="/documentation/improvements#flash-loan" class="link-primary">REF</a>
 						</td>
 						<td>&#x2715</td>
 						<td>&#x2713;</td>
