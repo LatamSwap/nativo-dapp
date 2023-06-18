@@ -1,13 +1,14 @@
 <script lang="ts">
-    import { CodeBlock } from '@skeletonlabs/skeleton';
-    import hljs from 'highlight.js';
-    import 'highlight.js/styles/github-dark.css';
-    import hljsDefineSolidity from "highlightjs-solidity";
+	import { CodeBlock } from '@skeletonlabs/skeleton';
+	import hljs from 'highlight.js';
+	import 'highlight.js/styles/github-dark.css';
+	import hljsDefineSolidity from 'highlightjs-solidity';
 
-    import { storeHighlightJs } from '@skeletonlabs/skeleton'; 
-    storeHighlightJs.set(hljs);
-hljsDefineSolidity(hljs);
+	import { storeHighlightJs } from '@skeletonlabs/skeleton';
+	storeHighlightJs.set(hljs);
+	hljsDefineSolidity(hljs);
 </script>
+
 <div>
 	<header class="doc-shell-header space-y-10" id="introduction">
 		<section class="space-y-4">
@@ -67,13 +68,18 @@ hljsDefineSolidity(hljs);
 		<hr class="" />
 	</header>
 	<hr />
-		<p class="leading-relaxed text-lg mt-4" >
-            If you are using a <b>smart contract</b> you can use this interface:
-			<a href="https://github.com/LatamSwap/nativo/blob/main/src/INativo.sol" rel="noreferrer" class="link-primary">INativo.sol</a>.
-			</p>
+	<p class="leading-relaxed text-lg mt-4">
+		If you are using a <b>smart contract</b> you can use this interface:
+		<a
+			href="https://github.com/LatamSwap/nativo/blob/main/src/INativo.sol"
+			rel="noreferrer"
+			class="link-primary">INativo.sol</a
+		>.
+	</p>
 
-
-            <CodeBlock language="solidity" code={`// SPDX-License-Identifier: MIT
+	<CodeBlock
+		language="solidity"
+		code={`// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
 interface Nativo {
@@ -217,7 +223,8 @@ interface Nativo {
 
 	receive() external payable;
 }
-`}></CodeBlock>
+`}
+	/>
 </div>
 
 <a class="btn variant-ghost-surface" href="/documentation/improvements">Improvements &#8594;</a>
