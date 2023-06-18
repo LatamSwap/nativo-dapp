@@ -15,19 +15,19 @@
 	<nav class="list-nav">
 		<ul>
 			<li>
-				<a href="/documentation"><span class="flex-auto">Fully ERC20 compliance</span> </a>
+				<a href="/documentation/improvements#compliance"><span class="flex-auto">Fully ERC20 compliance</span> </a>
 			</li>
 			<li>
-				<a href="/documentation"><span class="flex-auto">Better UX</span> </a>
+				<a href="/documentation/improvements#"><span class="flex-auto">Better UX</span> </a>
 			</li>
 			<li>
-				<a href="/documentation"><span class="flex-auto">ERC20Permit</span> </a>
+				<a href="/documentation/improvements#"><span class="flex-auto">ERC20Permit</span> </a>
 			</li>
 			<li>
-				<a href="/documentation"><span class="flex-auto">Payable Token</span> </a>
+				<a href="/documentation/improvements#"><span class="flex-auto">Payable Token</span> </a>
 			</li>
 			<li>
-				<a href="/documentation"><span class="flex-auto">Flash Loans</span> </a>
+				<a href="/documentation/improvements#"><span class="flex-auto">Flash Loans</span> </a>
 			</li>
 		</ul>
 	</nav>

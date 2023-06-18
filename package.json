@@ -39,6 +39,7 @@
 	"dependencies": {
 		"@web3-onboard/core": "^2.20.2",
 		"@web3-onboard/injected-wallets": "^2.10.1",
+		"highlightjs-solidity": "^2.0.6",
 		"viem": "^1.0.7"
 	},
 	"type": "module"
