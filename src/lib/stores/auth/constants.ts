@@ -14,11 +14,10 @@ const RSKtestnet = {
 	},
 	rpcUrls: {
 		default: { http: ['https://public-node.testnet.rsk.co'] },
-		public: { http: ['https://public-node.testnet.rsk.co'] },
+		public: { http: ['https://public-node.testnet.rsk.co'] }
 	},
-	testnet: true,
-
-}
+	testnet: true
+};
 
 /**
  *

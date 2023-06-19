@@ -33,11 +33,11 @@
 			return;
 		}
 
-console.log(walletAccount, walletState);
+		console.log(walletAccount, walletState);
 		$activeChain = walletState[0].chains[0].id as Chains;
-		
+
 		$walletClient = createWalletClient({
-			  transport: custom(window.ethereum)
+			transport: custom(window.ethereum)
 		});
 		window.$walletClient = $walletClient;
 	}
@@ -67,8 +67,7 @@ console.log(walletAccount, walletState);
 	}
 
 	async function switchChain(chain: string | Chains) {
-		if(chain) {
-			
+		if (chain) {
 			await onboard.setChain({ chainId: chain });
 		}
 	}

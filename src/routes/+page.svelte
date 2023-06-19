@@ -15,16 +15,14 @@
 			<h2 class="h2">Welcome to Nativo.</h2>
 			<div class="flex flex-col md:flex-row justify-center space-x-2 flex-wrap">
 				<a
-					class="btn variant-filled my-2 "
+					class="btn variant-filled my-2"
 					href="#features"
 					on:click|preventDefault={scrollIntoView}
 					rel="noreferrer"
 				>
 					Features
 				</a>
-				<a class="btn variant-filled my-2" href="/documentation">
-					Launch Documentation
-				</a>
+				<a class="btn variant-filled my-2" href="/documentation"> Launch Documentation </a>
 				<a class="btn variant-filled my-2" href="/wrap"> Wrap/Unwrap </a>
 			</div>
 			<div class="space-y-2" />

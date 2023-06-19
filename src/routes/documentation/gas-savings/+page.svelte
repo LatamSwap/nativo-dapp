@@ -11,7 +11,6 @@
 		we'll just add a few things to get started... stay tuned!
 	</p>
 	<hr class="!border-t-4 my-4" />
-
 </div>
 <hr class="!border-t-4 my-4" />
 
