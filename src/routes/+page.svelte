@@ -77,7 +77,7 @@
 					<tr>
 						<td class="text-left">
 							Infinity Approve (gas savings)
-							<a href="/documentation" class="link-primary">REF</a>
+							<a href="/documentation/gas-savings" class="link-primary">REF</a>
 						</td>
 						<td>&#x2715;</td>
 						<td>&#x2713;</td>
@@ -101,7 +101,7 @@
 								href="https://medium.com/coinmonks/gemstoneido-contract-stuck-with-921-eth-an-analysis-of-why-transfer-does-not-work-on-zksync-era-d5a01807227d"
 								>Read this</a
 							>
-							<a href="/documentation" class="link-primary">REF</a>
+							<a href="/documentation/security" class="link-primary">REF</a>
 						</td>
 						<td>&#x2715;</td>
 						<td>&#x2713;</td>

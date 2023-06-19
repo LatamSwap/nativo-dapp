@@ -67,20 +67,20 @@
 	<nav class="list-nav">
 		<ul>
 			<li>
-				<a href="/documentation"><span class="flex-auto">Less footguns</span> </a>
+				<a href="/documentation/security"><span class="flex-auto">Less footguns</span> </a>
 			</li>
 			<li>
-				<a href="/documentation"
+				<a href="/documentation/security"
 					><span class="flex-auto"
 						>Remove deprecated <pre>transfer</pre></span
 					>
 				</a>
 			</li>
 			<li>
-				<a href="/documentation"><span class="flex-auto">More tests</span> </a>
+				<a href="/documentation/security"><span class="flex-auto">More tests</span> </a>
 			</li>
 			<li>
-				<a href="/documentation"><span class="flex-auto">Invariants and fuzzing</span> </a>
+				<a href="/documentation/security"><span class="flex-auto">Invariants and fuzzing</span> </a>
 			</li>
 		</ul>
 	</nav>
