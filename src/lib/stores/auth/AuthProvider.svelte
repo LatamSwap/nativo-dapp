@@ -30,29 +30,16 @@
 	async function OnWalletsStateChange(walletState: WalletState[]) {
 		/**Check if the wallet is connected*/
 		if (!walletState || walletState.length === 0) {
-			if ($walletClient) {
-				$walletClient = undefined;
-			}
 			return;
 		}
 
-		if (
-			Object.keys(chainsMetadata).findIndex((key) => {
-				return key.toLowerCase() === walletState[0].chains[0].id.toLowerCase();
-			}) === -1 ||
-			// Delete this part if you don't want to check if the current wallet chain is the one from the store
-			walletState[0].chains[0].id.toLowerCase() !== $activeChain.toLowerCase()
-		) {
-			//await switchChain(Chains.ETH);
-			await switchChain($activeChain);
-		} else {
-			$activeChain = walletState[0].chains[0].id as Chains;
-		}
-
+console.log(walletAccount, walletState);
+		$activeChain = walletState[0].chains[0].id as Chains;
+		
 		$walletClient = createWalletClient({
-			chain: chainsMetadata[$activeChain],
-			transport: custom(walletState[0].provider)
+			  transport: custom(window.ethereum)
 		});
+		window.$walletClient = $walletClient;
 	}
 
 	onMount(() => {
@@ -80,7 +67,10 @@
 	}
 
 	async function switchChain(chain: string | Chains) {
-		await onboard.setChain({ chainId: chain });
+		if(chain) {
+			
+			await onboard.setChain({ chainId: chain });
+		}
 	}
 
 	setContext(CONTEXT_KEY, { connect, disconnect, switchChain });

@@ -227,4 +227,5 @@ interface Nativo {
 	/>
 </div>
 
-<a class="btn variant-ghost-surface mt-4" href="/documentation/improvements">Improvements &#8594;</a>
+<a class="btn variant-ghost-surface mt-4" href="/documentation/improvements">Improvements &#8594;</a
+>

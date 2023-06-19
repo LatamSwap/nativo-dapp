@@ -34,7 +34,7 @@
 							class="anchor"
 							href="https://github.com/latamswap/nativo/blob/master/LICENSE"
 							target="_blank"
-							rel="noreferrer">MIT License</a
+							rel="noreferrer">BUSL-1.1 License</a
 						> <span class="opacity-10 mx-2">|</span>
 						<a
 							class="anchor"
@@ -45,16 +45,14 @@
 					</p>
 
 					<div class="flex space-x-4">
-						<a class="btn variant-soft" href="/documentation">
-							<span class="hidden md:inline-block">Documentation</span></a
-						>
+						<a class="btn variant-soft" href="/documentation"> <span>Documentation</span></a>
 						<a
 							class="btn variant-soft"
 							href="https://github.com/latamswap/nativo"
 							target="_blank"
 							rel="noreferrer"
 						>
-							<span class="hidden md:inline-block">Github</span></a
+							<span>Github</span></a
 						>
 					</div>
 				</section>

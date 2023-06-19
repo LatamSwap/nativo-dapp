@@ -84,9 +84,9 @@ SafeTransferLib.safeTransferETH(recipient, amount);`}
 		unwrap the amount from the <code>from</code> address, thay give approval to the contract and
 		transfer the same amount of native currency to the <code>recipient</code> address.
 	</p>
-		<CodeBlock
-			language="solidity"
-			code={`NATIVO.withdrawFromTo(from, recipient, amount);
+	<CodeBlock
+		language="solidity"
+		code={`NATIVO.withdrawFromTo(from, recipient, amount);
 // is a replacement for:
 receive() external payable {
     require(msg.sender == address(WETH));
@@ -95,7 +95,7 @@ receive() external payable {
 WETH9.transferFrom(from, address(this), amount);
 WETH9.withdraw(amount);
 SafeTransferLib.safeTransferETH(recipient, amount);`}
-		/>
+	/>
 	<hr class="!border-t-4 my-4" />
 
 	<header class="doc-shell-header mt-10 space-y-10" id="erc20-permit">
@@ -111,7 +111,6 @@ SafeTransferLib.safeTransferETH(recipient, amount);`}
 	</p>
 	<hr class="!border-t-4 my-4" />
 
-
 	<header class="doc-shell-header space-y-10" id="payable-token">
 		<section class="space-y-4">
 			<span class="badge variant-soft translate-y-1">improvements</span>
@@ -120,20 +119,24 @@ SafeTransferLib.safeTransferETH(recipient, amount);`}
 		<hr />
 	</header>
 	<p class="leading-relaxed mt-4 text-xl">
-		There is no way to execute code after a ERC-20 transfer or approval (i.e. making a payment), so 
+		There is no way to execute code after a ERC-20 transfer or approval (i.e. making a payment), so
 		to make an action it is required to send another transaction and pay GAS twice.<br />
-		<code>Nativo</code> tackle this using the 
+		<code>Nativo</code> tackle this using the
 		<a
 			href="https://eips.ethereum.org/EIPS/eip-1363"
 			class="underline"
 			target="_blank"
-			rel="noreferrer"
-		>ERC-1363</a>, is a payable token, it implements the follow methods:
+			rel="noreferrer">ERC-1363</a
+		>, is a payable token, it implements the follow methods:
 	</p>
 	<ul class="list-item list pt-4 pb-20">
-		<li><code class="code">transferAndCall</code> and <code class="code">transferFromAndCall</code> will call an onTransferReceived on a ERC1363Receiver contract.</li>
-		<li><code class="code">approveAndCall</code> will call an onApprovalReceived on a ERC1363Spender contract.</li>
-		
+		<li>
+			<code class="code">transferAndCall</code> and <code class="code">transferFromAndCall</code> will
+			call an onTransferReceived on a ERC1363Receiver contract.
+		</li>
+		<li>
+			<code class="code">approveAndCall</code> will call an onApprovalReceived on a ERC1363Spender contract.
+		</li>
 	</ul>
 
 	<hr class="!border-t-4 my-4" />
@@ -146,17 +149,20 @@ SafeTransferLib.safeTransferETH(recipient, amount);`}
 		<hr />
 	</header>
 	<p class="leading-relaxed mt-4 mb-32 text-xl">
-		<code>Nativo</code> implementes the 
-		<a href="https://eips.ethereum.org/EIPS/eip-3156" target="_blank" rel="noreferrer" class="link-primary">
-			ERC-3156: Flash Loans 
-		</a>.
-		A flash loan is a smart contract transaction in which a lender smart contract lends assets to a borrower smart 
-		contract with the condition that the assets are returned, plus a fee of <b>0.1%</b>, before the end of the transaction.<br />
-		This let the protocol to lend an amount of tokens without a requirement for collateral, with the 
+		<code>Nativo</code> implementes the
+		<a
+			href="https://eips.ethereum.org/EIPS/eip-3156"
+			target="_blank"
+			rel="noreferrer"
+			class="link-primary"
+		>
+			ERC-3156: Flash Loans
+		</a>. A flash loan is a smart contract transaction in which a lender smart contract lends assets
+		to a borrower smart contract with the condition that the assets are returned, plus a fee of
+		<b>0.1%</b>, before the end of the transaction.<br />
+		This let the protocol to lend an amount of tokens without a requirement for collateral, with the
 		condition that they must be returned within the same transaction.
 	</p>
-
-	
 </div>
 <hr class="!border-t-4 my-4" />
 

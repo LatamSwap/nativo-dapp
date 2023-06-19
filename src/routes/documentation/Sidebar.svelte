@@ -20,16 +20,24 @@
 				</a>
 			</li>
 			<li>
-				<a href="/documentation/improvements#better-ux"><span class="flex-auto">Better UX</span> </a>
+				<a href="/documentation/improvements#better-ux"
+					><span class="flex-auto">Better UX</span>
+				</a>
 			</li>
 			<li>
-				<a href="/documentation/improvements#erc20-permit"><span class="flex-auto">ERC20Permit</span> </a>
+				<a href="/documentation/improvements#erc20-permit"
+					><span class="flex-auto">ERC20Permit</span>
+				</a>
 			</li>
 			<li>
-				<a href="/documentation/improvements#payable-token"><span class="flex-auto">Payable Token</span> </a>
+				<a href="/documentation/improvements#payable-token"
+					><span class="flex-auto">Payable Token</span>
+				</a>
 			</li>
 			<li>
-				<a href="/documentation/improvements#flashloan"><span class="flex-auto">Flash Loans</span> </a>
+				<a href="/documentation/improvements#flashloan"
+					><span class="flex-auto">Flash Loans</span>
+				</a>
 			</li>
 		</ul>
 	</nav>
@@ -38,13 +46,19 @@
 	<nav class="list-nav">
 		<ul>
 			<li>
-				<a href="/documentation/gas-savings#infinity-approve"><span class="flex-auto">Infinity approve</span> </a>
+				<a href="/documentation/gas-savings#infinity-approve"
+					><span class="flex-auto">Infinity approve</span>
+				</a>
 			</li>
 			<li>
-				<a href="/documentation/gas-savings#balances-slot"><span class="flex-auto">Balances slots</span> </a>
+				<a href="/documentation/gas-savings#balances-slot"
+					><span class="flex-auto">Balances slots</span>
+				</a>
 			</li>
 			<li>
-				<a href="/documentation/improvements#better-ux"><span class="flex-auto">Better UX</span> </a>
+				<a href="/documentation/improvements#better-ux"
+					><span class="flex-auto">Better UX</span>
+				</a>
 			</li>
 		</ul>
 	</nav>

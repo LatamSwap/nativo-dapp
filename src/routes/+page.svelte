@@ -13,17 +13,19 @@
 		<div class="space-y-10 text-center flex flex-col items-center w-full">
 			<img src="/cover.png" class="glow" alt="Nativo Cover" />
 			<h2 class="h2">Welcome to Nativo.</h2>
-			<div class="flex justify-center space-x-2">
+			<div class="flex flex-col md:flex-row justify-center space-x-2 flex-wrap">
 				<a
-					class="btn variant-filled"
+					class="btn variant-filled my-2 "
 					href="#features"
 					on:click|preventDefault={scrollIntoView}
 					rel="noreferrer"
 				>
 					Features
 				</a>
-				<a class="btn variant-filled" href="/documentation"> Launch Documentation </a>
-				<a class="btn variant-filled" href="/wrap"> Wrap/Unwrap </a>
+				<a class="btn variant-filled my-2" href="/documentation">
+					Launch Documentation
+				</a>
+				<a class="btn variant-filled my-2" href="/wrap"> Wrap/Unwrap </a>
 			</div>
 			<div class="space-y-2" />
 		</div>
@@ -42,6 +44,23 @@
 				cryptocurrency of any supported EVM network into an ERC20 token, thus enabling more
 				sophisticated interaction with smart contracts and DApps on various blockchains.
 			</p>
+			<p class="text-lg font-bold mt-4">
+				Shoutout, before dive in to the documentation, we would like to thank the following projects
+				that seem to have a similar idea,
+				<a
+					href="https://github.com/Philogy/meth-weth"
+					target="_blank"
+					rel="noreferrer"
+					class="link-primary">Philogy/meth-weth</a
+				>
+				and
+				<a
+					href="https://github.com/WETH10/WETH10"
+					target="_blank"
+					rel="noreferrer"
+					class="link-primary">WETH10/WETH10</a
+				>.
+			</p>
 		</div>
 		<!-- Responsive Container (recommended) -->
 		<div class="table-container max-w-2xl">
@@ -57,7 +76,7 @@
 				<tbody>
 					<tr>
 						<td class="text-left">
-							Infinity Approve (gas savings) 
+							Infinity Approve (gas savings)
 							<a href="/documentation" class="link-primary">REF</a>
 						</td>
 						<td>&#x2715;</td>

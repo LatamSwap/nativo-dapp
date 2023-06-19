@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { chainsMetadata } from '$lib/stores/auth/constants';
 	import { useAuth } from '$lib/stores/auth/methods';
-	import { accountENS, walletAccount, activeChain } from '$lib/stores/auth/store';
+	import { walletAccount, activeChain } from '$lib/stores/auth/store';
 	import { Chains } from '$lib/stores/auth/types';
 
 	const { connect, disconnect, switchChain } = useAuth();
@@ -33,17 +33,9 @@
 			GitHub
 		</a>
 
-		<p>Active Chain: {chainsMetadata[$activeChain].name}</p>
-		<button class="btn btn-sm variant-ghost-surface" on:click={switchToETH}>Switch to ETH</button>
-		<button class="btn btn-sm variant-ghost-surface" on:click={switchToOptimism}
-			>Switch to Optimism</button
-		>
 		{#if $walletAccount}
 			<div class="gap-2 flex flex-col">
 				<p>Address: {$walletAccount}</p>
-				{#if $accountENS}
-					<p>Account ENS: {$accountENS}</p>
-				{/if}
 				<button class="btn btn-sm variant-ghost-surface" on:click={() => disconnect()}
 					>Disconnect</button
 				>
