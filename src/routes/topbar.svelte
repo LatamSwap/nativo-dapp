@@ -1,22 +1,17 @@
 <script lang="ts">
-	import { chainsMetadata } from '$lib/stores/auth/constants';
-	import { useAuth } from '$lib/stores/auth/methods';
 	import { walletAccount, activeChain } from '$lib/stores/auth/store';
-	import { Chains } from '$lib/stores/auth/types';
-
-	const { connect, disconnect, switchChain } = useAuth();
+	
+	//const { connect, disconnect, switchChain } = useAuth();
 
 	import { AppBar } from '@skeletonlabs/skeleton';
 
-	async function switchToETH() {
-		$activeChain = Chains.ETH;
-		if ($walletAccount) switchChain($activeChain);
+	function connect() {
+		console.log('connect');
+	}
+	function disconnect() {
+		console.log('disconnect');
 	}
 
-	async function switchToOptimism() {
-		$activeChain = Chains.OP;
-		if ($walletAccount) switchChain($activeChain);
-	}
 </script>
 
 <AppBar>

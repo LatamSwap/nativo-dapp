@@ -5,14 +5,15 @@
 	import '@skeletonlabs/skeleton/styles/skeleton.css';
 	// Most of your app wide CSS should be put in this file
 	import '../app.postcss';
-	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
+	import { AppShell } from '@skeletonlabs/skeleton';
 
 	import AuthProvider from '$lib/stores/auth/AuthProvider.svelte';
+	//<AuthProvider>
+
 
 	import Topbar from './topbar.svelte';
 </script>
 
-<AuthProvider>
 	<!-- App Shell -->
 	<AppShell>
 		<svelte:fragment slot="header">
@@ -59,4 +60,3 @@
 			</div>
 		</svelte:fragment>
 	</AppShell>
-</AuthProvider>

@@ -3,7 +3,7 @@
 	<nav class="list-nav">
 		<ul>
 			<li>
-				<a href="/documentation#introduction"><span class="flex-auto">Introduction</span> </a>
+				<a href="/documentation"><span class="flex-auto">Introduction</span> </a>
 			</li>
 			<li>
 				<a href="/documentation#get-started"><span class="flex-auto">Get Started</span> </a>

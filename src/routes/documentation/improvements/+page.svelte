@@ -64,7 +64,7 @@ WETH9.transfer(recipient, amount);`}
 	</p>
 	<CodeBlock
 		language="solidity"
-		code={`NATIVO.withdrawTo(recipient);
+		code={`NATIVO.withdrawTo(recipient, amount);
 // is a replacement for:
 receive() external payable {
     require(msg.sender == address(WETH));
