@@ -9,9 +9,15 @@
 	import type { Chains } from './types';
 	import { onMount, setContext } from 'svelte';
 	import { CONTEXT_KEY } from './methods';
-	import { activeChain, walletAccount, walletClient,connect, disconnect, switchChain } from './store';
+	import {
+		activeChain,
+		walletAccount,
+		walletClient,
+		connect,
+		disconnect,
+		switchChain
+	} from './store';
 	import { createWalletClient, custom } from 'viem';
-
 
 	const chains = Object.keys(chainsMetadata).map((key) => {
 		const chain = chainsMetadata[key as Chains];
@@ -43,7 +49,6 @@
 		window.$walletClient = $walletClient;
 
 		// token: 0x2A955Cd173b851bac5Be79BdC8Cbc5D5a30e1d8d
-
 	}
 
 	onMount(() => {
@@ -79,5 +84,4 @@
 			await onboard.setChain({ chainId: chain });
 		}
 	}
-
 </script>

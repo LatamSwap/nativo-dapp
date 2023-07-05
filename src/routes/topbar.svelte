@@ -1,13 +1,16 @@
 <script lang="ts">
-	import { walletAccount, activeChain, connect, disconnect, switchChain } from '$lib/stores/auth/store';
-	
-	
+	import {
+		walletAccount,
+		activeChain,
+		connect,
+		disconnect,
+		switchChain
+	} from '$lib/stores/auth/store';
+
 	import { AppBar } from '@skeletonlabs/skeleton';
 
 	$: _connect = $connect || (() => {});
 	$: _disconnect = $disconnect || (() => {});
-	
-
 </script>
 
 <AppBar>
@@ -33,7 +36,8 @@
 			</div>
 		{:else if $connect}
 			<div>
-				<button class="btn btn-sm variant-ghost-surface" on:click={() => _connect()}>Connect</button>
+				<button class="btn btn-sm variant-ghost-surface" on:click={() => _connect()}>Connect</button
+				>
 			</div>
 		{/if}
 	</svelte:fragment>

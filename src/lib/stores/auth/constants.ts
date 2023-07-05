@@ -28,4 +28,3 @@ export const chainsMetadata = {
 	[Chains.FUJI]: avalancheFuji,
 	[Chains.RSKtestnet]: RSKtestnet
 };
-
