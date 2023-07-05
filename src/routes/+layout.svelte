@@ -7,9 +7,6 @@
 	import '../app.postcss';
 	import { AppShell } from '@skeletonlabs/skeleton';
 
-	import AuthProvider from '$lib/stores/auth/AuthProvider.svelte';
-	//<AuthProvider>
-
 
 	import Topbar from './topbar.svelte';
 </script>
