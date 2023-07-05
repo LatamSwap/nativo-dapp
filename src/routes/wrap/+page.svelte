@@ -2,17 +2,16 @@
 	import { chainsMetadata } from '$lib/stores/auth/constants';
 	import {
 		walletBalance,
+		walletClient,
 		walletBalanceNativo,
 		walletAccount,
-		activeChain,
 		connect,
 		disconnect,
 		tokenSymbol,
 		wrongNetwork,
-		switchChain
 	} from '$lib/stores/auth/store';
-	import { Chains } from '$lib/stores/auth/types';
-	import { formatEther } from 'viem';
+	import { formatEther, parseEther } from 'viem';
+	import { nativoAbi } from '$lib/nativo.abi';
 
 	$: _connect = $connect;
 	$: _disconnect = $disconnect;
@@ -23,13 +22,34 @@
 
 	let amountVal = 0;
 
+	async function doWrap() {
+		if(!$walletAccount) {
+			return;
+		}
+		await $walletClient?.writeContract({
+			address: '0x2A955Cd173b851bac5Be79BdC8Cbc5D5a30e1d8d',
+			account: $walletAccount,
+			abi: nativoAbi,
+			functionName: 'deposit',
+			value: parseEther(String(amountVal))
+		});
+
+		amountVal = 0;
+	}
+
+	$: wrapping = action == 'wrap'
+	$: if (wrapping || !wrapping) {
+			amountVal = 0;
+	}
+
+
 </script>
 
 {#if _connect}
 	<div class="w-full h-full bg-slate-200">
 		<div class="flex justify-center flex-col mx-auto w-full text-center max-w-lg">
 			<div class="btn-group variant-filled flex flex-row mx-auto mt-14">
-				<button on:click={() => (action = 'wrap')} class:bg-slate-300={action == 'wrap'}
+				<button on:click={() => (action = 'wrap')} class:bg-slate-300={wrapping}
 					>Wrap</button
 				>
 				<button on:click={() => (action = 'unwrap')} class:bg-slate-300={action == 'unwrap'}
@@ -39,18 +59,18 @@
 			<div class="rounded-3xl bg-white shadow-sm w-full mt-10 mx-auto flex flex-col px-5 py-4 z-10">
 				{#if $walletAccount && !$wrongNetwork}
 					<h1 class=" text-black text-3xl">
-						{action == 'wrap' ? 'Wrap : ' + $tokenSymbol + ' to n' + $tokenSymbol : 'Unwrap'}
+						{wrapping ? ('Wrap : ' + $tokenSymbol + ' to n' + $tokenSymbol) : ('Unwrap : n' + $tokenSymbol + ' to ' + $tokenSymbol)}
 					</h1>
 					<div class="border rounded-lg p-2 flex flex-col">
 						<div class="flex flex-row text-xs text-gray-700 justify-between items-center">
 							<div>
-								{#if action == 'wrap'}
+								{#if wrapping}
 									{$tokenSymbol} to wrap
 								{:else}
 									n{$tokenSymbol} to unwrap
 								{/if}
 							</div>
-							<div>Balance: {$walletBalance && formatEther($walletBalance || 0n).slice(0, 8)}</div>
+							<div>Balance: {formatEther((wrapping ? $walletBalance : $walletBalanceNativo) || 0n).slice(0, 8)}</div>
 						</div>
 						<div class="flex flex-row text-gray-700 justify-between pt-1 items-center">
 							<!-- {#if loaded} -->
@@ -62,7 +82,7 @@
 								bind:value={amountVal}
 								placeholder="0"
 								min="0"
-								max={parseFloat(formatEther($walletBalance || 0n))}
+								max={parseFloat(formatEther((wrapping ? $walletBalance : $walletBalanceNativo ) || 0n))}
 								step="0.01"
 								class="text-4xl outline-none w-72 font-mono"
 							/>
@@ -72,7 +92,7 @@
 							>
 							<!-- <div class="flex flex-row items-center"> -->
 							<div class="text-xl font-semibold w-14">
-								{action == 'wrap' ? '' : 'n'}{$tokenSymbol}
+								{wrapping ? '' : 'n'}{$tokenSymbol}
 							</div>
 							<!-- </div> -->
 						</div>
@@ -89,7 +109,7 @@
 					<div class="border rounded-lg p-2 flex flex-col">
 						<div class="flex flex-row text-xs text-gray-700 justify-between">
 							<div>Output</div>
-							<div>Balance: {formatEther($walletBalanceNativo || 0n).slice(0,8)}</div>
+							<div>Balance: {parseFloat(formatEther((wrapping ? $walletBalanceNativo : $walletBalance ) || 0n).slice(0,8))}</div>
 						</div>
 						<div class="flex flex-row text-gray-700 justify-between pt-1">
 							<input
@@ -101,8 +121,8 @@
 								class="text-4xl w-72 outline-none font-mono text-green-700"
 							/>
 							<div class="flex flex-row">
-								<div class="text-xl font-semibold w-14" class:hidden={!name}>
-									{action == 'wrap' ? 'n' : ''}{name}
+								<div class="text-xl font-semibold w-14">
+									{action == 'wrap' ? 'n' : ''}{$tokenSymbol}
 								</div>
 							</div>
 						</div>
@@ -129,7 +149,7 @@
 							<!-- Actions -->
 						</aside>
 					{:else}
-						<button type="button" class="btn variant-filled-warning btn-xl my-4">
+						<button type="button" class="btn variant-filled-warning btn-xl my-4" on:click={() => doWrap()}>
 							{action == 'wrap' ? 'Wrap' : 'Unwrap'}
 						</button>
 					{/if}

@@ -6,7 +6,7 @@
 	} from '@web3-onboard/core';
 	import { chainsMetadata } from './constants';
 	import injectedWallet from '@web3-onboard/injected-wallets';
-	import type { Chains } from './types';
+	import { Chains } from './types';
 	import { onMount, setContext } from 'svelte';
 	import { CONTEXT_KEY } from './methods';
 	import {
@@ -16,9 +16,10 @@
 		connect,
 		disconnect,
 		switchChain
-	} from './store';
-	import { createWalletClient, custom } from 'viem';
+	} from './store';	
 
+	import { createWalletClient, custom } from 'viem';
+	
 	const chains = Object.keys(chainsMetadata).map((key) => {
 		const chain = chainsMetadata[key as Chains];
 
@@ -44,7 +45,8 @@
 		$activeChain = walletState[0].chains[0].id as Chains;
 
 		$walletClient = createWalletClient({
-			transport: custom(window.ethereum)
+			transport: custom(window.ethereum),
+			chain: chainsMetadata[Chains.RSKtestnet],
 		});
 		window.$walletClient = $walletClient;
 

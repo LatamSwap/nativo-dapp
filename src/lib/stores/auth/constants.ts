@@ -17,6 +17,18 @@ const RSKtestnet = {
 		default: { http: ['https://public-node.testnet.rsk.co'] },
 		public: { http: ['https://public-node.testnet.rsk.co'] }
 	},
+	/*
+	 "blockExplorers": {
+    "etherscan": {
+      "name": "Etherscan",
+      "url": "https://etherscan.io"
+    },
+    "default": {
+      "name": "Etherscan",
+      "url": "https://etherscan.io"
+    }
+  },
+ */
 	testnet: true
 };
 

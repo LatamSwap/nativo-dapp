@@ -3,16 +3,7 @@ import { type Address, type WalletClient, custom, http, createPublicClient } fro
 import { Chains } from './types';
 import { chainsMetadata } from './constants';
 
-import { parseAbi } from 'viem';
-
-const nativoAbi = parseAbi([
-	'function transferFrom(address from, address to, uint amount)',
-	'function transfer(uint amount)',
-	'function withdraw(uint amount)',
-	'function deposit() payable',
-	'function balanceOf(address owner) view returns (uint)',
-	'event Transfer(address indexed from, address indexed to, uint256 amount)'
-]);
+import { nativoAbi } from '../../nativo.abi';
 
 export const activeChain = writable<Chains>(Chains.ETH);
 export const walletClient = writable<WalletClient | undefined>();
