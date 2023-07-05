@@ -18,7 +18,9 @@ const nativoAbi = parseAbi([
 export const activeChain = writable<Chains>(Chains.ETH);
 export const walletClient = writable<WalletClient | undefined>();
 
-export const walletBalance = writable<bigint | undefined>();
+export const wrongNetwork = derived([activeChain], ([$activeChain], set) => {
+	set($activeChain != '0x1f' && $activeChain != '0xa869');
+})
 
 export const walletAccount = derived<[Readable<WalletClient | undefined>], Address | undefined>(
 	[walletClient],
@@ -37,13 +39,7 @@ export const walletAccount = derived<[Readable<WalletClient | undefined>], Addre
   			 transport: custom(window.ethereum)
 				//transport: http("https://public-node.testnet.rsk.co")
 			});
-			publicClient.getBalance({
-				address: account,
-				blockTag: 'latest'
-			}).then((_balance: bigint) => {
-				walletBalance.set(_balance);
-			});
-
+			
 			publicClient.readContract({
 	  		address: '0x2A955Cd173b851bac5Be79BdC8Cbc5D5a30e1d8d',
   		abi: nativoAbi,
@@ -54,6 +50,27 @@ export const walletAccount = derived<[Readable<WalletClient | undefined>], Addre
 		});
 	}
 );
+
+export const walletBalance = derived(
+	[wrongNetwork, walletAccount],
+	async ([$wrongNetwork, $walletAccount], set) => {
+		
+		if ($wrongNetwork || !$walletAccount) {
+			set(undefined);
+			return undefined;
+		}
+
+		const publicClient = createPublicClient({
+  			 transport: custom(window.ethereum)
+				//transport: http("https://public-node.testnet.rsk.co")
+			});
+			const _balance = await publicClient.getBalance({
+				address: $walletAccount,
+				blockTag: 'latest'
+			})
+			set(_balance);
+	});
+
 
 export const connect = writable();
 export const disconnect = writable();

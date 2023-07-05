@@ -13,6 +13,8 @@
 
 	let action = 'wrap';
 
+	let amountVal = 0;
+
 	let name = '';
 	$: if ($activeChain == '0x1f') {
 		name = 'RBTC';
@@ -21,6 +23,8 @@
 	} else {
 		name = '';
 	}
+
+	$: onWrongNetwork = $activeChain != '0x1f' && $activeChain != '0xa869';
 </script>
 
 {#if _connect}
@@ -31,11 +35,11 @@
 		<div class="btn-group variant-filled flex flex-row mx-auto mt-14">
 			<button on:click={() => (action = 'wrap')} class:bg-slate-300={action == 'wrap'}>Wrap</button>
 			<button on:click={() => (action = 'unwrap')} class:bg-slate-300={action == 'unwrap'}
-				>Unwrap {$activeChain}</button
+				>Unwrap</button
 			>
 		</div>
 		<div class="rounded-3xl bg-white shadow-sm w-full mt-10 mx-auto flex flex-col px-5 py-4 z-10">
-			{#if $walletAccount}
+			{#if $walletAccount && !onWrongNetwork}
 			<h1 class=" text-black text-3xl">{action == 'wrap' ? 'Wrap : '+name+ ' to n'+name : 'Unwrap'}</h1>
 			<div class="border rounded-lg p-2 flex flex-col">
 				<div class="flex flex-row text-xs text-gray-700 justify-between items-center">
@@ -55,9 +59,10 @@
           on:input="{updateethmountVal}" -->
 					<input
 						type="number"
+						bind:value={amountVal}
 						placeholder="0"
 						min="0"
-						max="222"
+						max={parseFloat(formatEther($walletBalance || 0n))}
 						step="0.01"
 						class="text-4xl outline-none w-72 font-mono"
 					/>
@@ -91,7 +96,7 @@
 						type="number"
 						placeholder="0"
 						min="0"
-						value=""
+						value={amountVal}
 						readonly
 						class="text-4xl w-72 outline-none font-mono text-green-700"
 					/>
@@ -110,14 +115,14 @@
 						class="btn variant-filled-warning btn-xl my-4"
 						on:click={() => _connect()}>Connect wallet</button
 					>
-				{:else if $activeChain != '0x112' && $activeChain != '0x1f' && $activeChain != '0xa869'}
+				{:else if onWrongNetwork}
 					<aside class="alert variant-filled mt-3">
 						<!-- Icon -->
 						<!-- Message -->
 						<div class="alert-message text-justify w-full">
 							<h3 class="h3">Wrong network</h3>
 							<p>
-								Nativo is working on <b>RSKTestnet</b> and <b>Patex</b>
+								Nativo is working on <b>RSKTestnet</b> and <b>Patex</b>. Please switch your wallet to one of those networks.
 							</p>
 						</div>
 						<!-- Actions -->
