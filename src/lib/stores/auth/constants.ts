@@ -4,9 +4,10 @@ import { Chains } from './types';
 
 const RSKtestnet = {
 	id: 31,
-	chainId: 31,
+	// chainId: 31,
 	name: 'RSK Testnet',
 	network: 'RSK Testnet',
+	token: 'tRBTC',
 	nativeCurrency: {
 		name: 'RSK Testnet Ether',
 		symbol: 'tRBTC',
@@ -28,4 +29,3 @@ export const chainsMetadata = {
 	[Chains.RSKtestnet]: RSKtestnet
 };
 
-console.log(chainsMetadata);

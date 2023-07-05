@@ -1,17 +1,20 @@
 <script lang="ts">
 	import { chainsMetadata } from '$lib/stores/auth/constants';
-	import { useAuth } from '$lib/stores/auth/methods';
-	import { walletAccount, activeChain } from '$lib/stores/auth/store';
+	import { walletBalance, walletAccount, activeChain, connect, disconnect, switchChain } from '$lib/stores/auth/store';
 	import { Chains } from '$lib/stores/auth/types';
+	import { formatEther } from 'viem';
 
-	const { connect, disconnect, switchChain } = useAuth();
+
+	$: _connect = $connect;
+	$: _disconnect = $disconnect;
+	
+	// 0x2A955Cd173b851bac5Be79BdC8Cbc5D5a30e1d8d
+
 
 	let action = 'wrap';
 
 	let name = '';
-	$: if ($activeChain == '0x112') {
-		name = 'LAC';
-	} else if ($activeChain == '0x112') {
+	$: if ($activeChain == '0x1f') {
 		name = 'RBTC';
 	} else if ($activeChain == '0xa869') {
 		name = 'AVAX';
@@ -20,16 +23,20 @@
 	}
 </script>
 
+{#if _connect}
+
 <div class="w-full h-full bg-slate-200">
+
 	<div class="flex justify-center flex-col mx-auto w-full text-center max-w-lg">
 		<div class="btn-group variant-filled flex flex-row mx-auto mt-14">
 			<button on:click={() => (action = 'wrap')} class:bg-slate-300={action == 'wrap'}>Wrap</button>
 			<button on:click={() => (action = 'unwrap')} class:bg-slate-300={action == 'unwrap'}
-				>Unwrap</button
+				>Unwrap {$activeChain}</button
 			>
 		</div>
 		<div class="rounded-3xl bg-white shadow-sm w-full mt-10 mx-auto flex flex-col px-5 py-4 z-10">
-			<h1 class="uppercase text-black text-3xl">{action == 'wrap' ? 'Wrap' : 'Unwrap'}</h1>
+			{#if $walletAccount}
+			<h1 class=" text-black text-3xl">{action == 'wrap' ? 'Wrap : '+name+ ' to n'+name : 'Unwrap'}</h1>
 			<div class="border rounded-lg p-2 flex flex-col">
 				<div class="flex flex-row text-xs text-gray-700 justify-between items-center">
 					<div class:hidden={!name}>
@@ -39,7 +46,7 @@
 							n{name} to unwrap
 						{/if}
 					</div>
-					<div>Balance: 0</div>
+					<div>Balance: {$walletBalance && formatEther($walletBalance || 0n)}</div>
 				</div>
 				<div class="flex flex-row text-gray-700 justify-between pt-1 items-center">
 					<!-- {#if loaded} -->
@@ -95,22 +102,22 @@
 					</div>
 				</div>
 			</div>
+			{/if}
 			<div>
 				{#if !$walletAccount}
 					<button
 						type="button"
 						class="btn variant-filled-warning btn-xl my-4"
-						on:click={() => connect()}>Connect wallet</button
+						on:click={() => _connect()}>Connect wallet</button
 					>
 				{:else if $activeChain != '0x112' && $activeChain != '0x1f' && $activeChain != '0xa869'}
 					<aside class="alert variant-filled mt-3">
 						<!-- Icon -->
 						<!-- Message -->
-						<div class="alert-message">
+						<div class="alert-message text-justify w-full">
 							<h3 class="h3">Wrong network</h3>
 							<p>
-								Nativo is working on <b>RSKTestnet</b>, <b>LaChain testnet</b> and
-								<b>AvalancheFuji Testnet</b>
+								Nativo is working on <b>RSKTestnet</b> and <b>Patex</b>
 							</p>
 						</div>
 						<!-- Actions -->
@@ -142,3 +149,5 @@
 		</div>
 	</div>
 </div>
+
+{/if}

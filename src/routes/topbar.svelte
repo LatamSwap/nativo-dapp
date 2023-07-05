@@ -1,16 +1,12 @@
 <script lang="ts">
-	import { walletAccount, activeChain } from '$lib/stores/auth/store';
+	import { walletAccount, activeChain, connect, disconnect, switchChain } from '$lib/stores/auth/store';
 	
-	//const { connect, disconnect, switchChain } = useAuth();
-
+	
 	import { AppBar } from '@skeletonlabs/skeleton';
 
-	function connect() {
-		console.log('connect');
-	}
-	function disconnect() {
-		console.log('disconnect');
-	}
+	$: _connect = $connect || (() => {});
+	$: _disconnect = $disconnect || (() => {});
+	
 
 </script>
 
@@ -31,13 +27,13 @@
 		{#if $walletAccount}
 			<div class="gap-2 flex flex-col">
 				<p>Address: {$walletAccount}</p>
-				<button class="btn btn-sm variant-ghost-surface" on:click={() => disconnect()}
+				<button class="btn btn-sm variant-ghost-surface" on:click={() => _disconnect()}
 					>Disconnect</button
 				>
 			</div>
-		{:else}
+		{:else if $connect}
 			<div>
-				<button class="btn btn-sm variant-ghost-surface" on:click={() => connect()}>Connect</button>
+				<button class="btn btn-sm variant-ghost-surface" on:click={() => _connect()}>Connect</button>
 			</div>
 		{/if}
 	</svelte:fragment>

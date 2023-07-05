@@ -9,8 +9,9 @@
 	import type { Chains } from './types';
 	import { onMount, setContext } from 'svelte';
 	import { CONTEXT_KEY } from './methods';
-	import { activeChain, walletAccount, walletClient } from './store';
+	import { activeChain, walletAccount, walletClient,connect, disconnect, switchChain } from './store';
 	import { createWalletClient, custom } from 'viem';
+
 
 	const chains = Object.keys(chainsMetadata).map((key) => {
 		const chain = chainsMetadata[key as Chains];
@@ -40,21 +41,28 @@
 			transport: custom(window.ethereum)
 		});
 		window.$walletClient = $walletClient;
+
+		// token: 0x2A955Cd173b851bac5Be79BdC8Cbc5D5a30e1d8d
+
 	}
 
 	onMount(() => {
 		const { unsubscribe } = onboard.state.select('wallets').subscribe(OnWalletsStateChange);
+
+		$connect = _connect;
+		$disconnect = _disconnect;
+		$switchChain = _switchChain;
 
 		return () => {
 			unsubscribe();
 		};
 	});
 
-	async function connect(options?: ConnectOptions) {
+	async function _connect(options?: ConnectOptions) {
 		await onboard.connectWallet(options);
 	}
 
-	async function disconnect(options: DisconnectOptions) {
+	async function _disconnect(options: DisconnectOptions) {
 		const [primaryWallet] = onboard.state.get().wallets;
 
 		if (primaryWallet) {
@@ -66,13 +74,10 @@
 		}
 	}
 
-	async function switchChain(chain: string | Chains) {
+	async function _switchChain(chain: string | Chains) {
 		if (chain) {
 			await onboard.setChain({ chainId: chain });
 		}
 	}
 
-	setContext(CONTEXT_KEY, { connect, disconnect, switchChain });
 </script>
-
-<slot />

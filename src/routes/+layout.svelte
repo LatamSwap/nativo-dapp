@@ -7,9 +7,22 @@
 	import '../app.postcss';
 	import { AppShell } from '@skeletonlabs/skeleton';
 
+	import { onMount } from 'svelte';
+
+
 
 	import Topbar from './topbar.svelte';
+	import AuthProvider from '$lib/stores/auth/AuthProvider.svelte';
+	
+	let loading = true;
+	onMount(() => {
+		loading = false;
+	});
+
 </script>
+	{#if !loading}
+	<AuthProvider />
+	{/if}
 
 	<!-- App Shell -->
 	<AppShell>
