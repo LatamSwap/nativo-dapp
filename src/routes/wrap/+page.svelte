@@ -52,7 +52,7 @@
 				<button on:click={() => (action = 'wrap')} class:bg-slate-300={wrapping}
 					>Wrap</button
 				>
-				<button on:click={() => (action = 'unwrap')} class:bg-slate-300={action == 'unwrap'}
+				<button on:click={() => (action = 'unwrap')} class:bg-slate-300={!wrapping}
 					>Unwrap</button
 				>
 			</div>
@@ -149,9 +149,15 @@
 							<!-- Actions -->
 						</aside>
 					{:else}
-						<button type="button" class="btn variant-filled-warning btn-xl my-4" on:click={() => doWrap()}>
-							{action == 'wrap' ? 'Wrap' : 'Unwrap'}
-						</button>
+						{#if wrapping}
+							<button type="button" class="btn variant-filled-warning btn-xl my-4" on:click={() => doWrap()}>
+								Wrap
+							</button>
+						{:else}
+							<button type="button" class="btn variant-filled-warning btn-xl my-4" on:click={() => doWrap()}>
+								{wrapping ? 'Wrap' : 'Unwrap'}
+							</button>
+						{/if}
 					{/if}
 
 					<!--
