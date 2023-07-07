@@ -59,7 +59,6 @@
 
 
 </script>
-
 {#if _connect}
 	<div class="w-full h-full bg-slate-200">
 		<div class="flex justify-center flex-col mx-auto w-full text-center max-w-lg">
@@ -97,7 +96,7 @@
 								bind:value={amountVal}
 								placeholder="0"
 								min="0"
-								max={parseFloat(formatEther((wrapping ? $walletBalance : $walletBalanceNativo ) || 0n))}
+								max={parseFloat(formatEther((wrapping ? $walletBalance : $walletBalanceNativo ) || 0n).slice(0, 8))}
 								step="0.01"
 								class="text-4xl outline-none w-72 font-mono"
 							/>

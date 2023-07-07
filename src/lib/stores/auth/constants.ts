@@ -14,8 +14,38 @@ const RSKtestnet = {
 		decimals: 18
 	},
 	rpcUrls: {
-		default: { http: ['https://public-node.testnet.rsk.co'] },
-		public: { http: ['https://public-node.testnet.rsk.co'] }
+		default: { http: ['https://test-rpc.patex.io	'] },
+		public: { http: ['https://test-rpc.patex.io	'] }
+	},
+	/*
+	 "blockExplorers": {
+    "etherscan": {
+      "name": "Etherscan",
+      "url": "https://etherscan.io"
+    },
+    "default": {
+      "name": "Etherscan",
+      "url": "https://etherscan.io"
+    }
+  },
+ */
+	testnet: true
+};
+
+const PatexTestnet = {
+	id: 471100,
+	// chainId: 31,
+	name: 'Patex Testnet',
+	network: 'Patex Testnet',
+	token: 'ETH',
+	nativeCurrency: {
+		name: 'Testnet Ether',
+		symbol: 'ETH',
+		decimals: 18
+	},
+	rpcUrls: {
+		default: { http: ['https://test-rpc.patex.io'] },
+		public: { http: ['https://test-rpc.patex.io'] }
 	},
 	/*
 	 "blockExplorers": {
@@ -38,5 +68,6 @@ const RSKtestnet = {
 // export const chainsMetadata: ChainsMetadata = {
 export const chainsMetadata = {
 	[Chains.FUJI]: avalancheFuji,
-	[Chains.RSKtestnet]: RSKtestnet
+	[Chains.RSKtestnet]: RSKtestnet,
+	[Chains.PatexTestnet]: PatexTestnet
 };

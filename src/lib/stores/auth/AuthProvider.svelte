@@ -46,7 +46,7 @@
 
 		$walletClient = createWalletClient({
 			transport: custom(window.ethereum),
-			chain: chainsMetadata[Chains.RSKtestnet],
+			chain: $activeChain == 0x1f ? chainsMetadata[Chains.RSKtestnet] : chainsMetadata[Chains.PatexTestnet],
 		});
 		window.$walletClient = $walletClient;
 

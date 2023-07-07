@@ -9,14 +9,15 @@ export const activeChain = writable<Chains>(Chains.ETH);
 export const walletClient = writable<WalletClient | undefined>();
 
 export const wrongNetwork = derived([activeChain], ([$activeChain], set) => {
-	set($activeChain != '0x1f' && $activeChain != '0xa869');
+	console.log($activeChain)
+	set($activeChain != '0x1f' && $activeChain != '0x7303c');
 });
 
 export const tokenSymbol = derived([activeChain], ([$activeChain], set) => {
 	if ($activeChain == '0x1f') {
 		set('RBTC');
-	} else if ($activeChain == '0xa869') {
-		set('AVAX');
+	} else if ($activeChain == '0x7303c') {
+		set('ETH');
 	} else {
 		set('');
 	}
