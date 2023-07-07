@@ -107,7 +107,7 @@ SafeTransferLib.safeTransferETH(recipient, amount);`}
 	</header>
 	<p class="leading-relaxed mt-4 mb-32 text-xl">
 		<code>Nativo</code> is an ERC20 that allows gasless approval of tokens (standardized as ERC2612).
-		This ERC allow approvals to be made via signatures, as defined in EIP-2612.
+		This ERC allow approvals to be made via signatures, as defined in <a href="https://eips.ethereum.org/EIPS/eip-2612" target="_blank">EIP-2612</a>.
 	</p>
 	<hr class="!border-t-4 my-4" />
 
@@ -129,7 +129,7 @@ SafeTransferLib.safeTransferETH(recipient, amount);`}
 			rel="noreferrer">ERC-1363</a
 		>, is a payable token, it implements the follow methods:
 	</p>
-	<ul class="list-item list pt-4 pb-20">
+	<ul class="list-item list pt-4 pb-20 text-xl">
 		<li>
 			<code class="code">transferAndCall</code> and <code class="code">transferFromAndCall</code> will
 			call an onTransferReceived on a ERC1363Receiver contract.
