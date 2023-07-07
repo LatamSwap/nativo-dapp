@@ -102,6 +102,7 @@
 							/>
 							<button
 								class="text-xs hover:border-gray-600 border-transparent border rounded px-1 mx-4 py-0 h-6 bg-slate-200"
+								on:click={() => { amountVal = parseFloat(formatEther((wrapping ? $walletBalance : $walletBalanceNativo ) || 0n).slice(0, 8)) }}
 								>MAX</button
 							>
 							<!-- <div class="flex flex-row items-center"> -->
