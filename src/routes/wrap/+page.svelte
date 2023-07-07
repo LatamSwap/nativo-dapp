@@ -22,6 +22,21 @@
 
 	let amountVal = 0;
 
+	async function doUnwrap() {
+		if(!$walletAccount) {
+			return;
+		}
+		await $walletClient?.writeContract({
+			address: '0x2A955Cd173b851bac5Be79BdC8Cbc5D5a30e1d8d',
+			account: $walletAccount,
+			abi: nativoAbi,
+			functionName: 'withdraw',
+			args: [parseEther(String(amountVal))]
+		});
+
+		amountVal = 0;
+	}
+
 	async function doWrap() {
 		if(!$walletAccount) {
 			return;
@@ -142,7 +157,9 @@
 							<div class="alert-message text-justify w-full">
 								<h3 class="h3">Wrong network</h3>
 								<p>
-									Nativo is working on <b>RSKTestnet</b> and <b>Patex</b>. Please switch your wallet
+									Nativo is working on 
+									<a href="https://chainlist.org/chain/31" class="underline font-bold" target="_blank">RSKTestnet</a>
+									 and <a href="https://chainlist.org/chain/471100" class="underline font-bold" target="_blank">Patex Testnet</a>. Please switch your wallet
 									to one of those networks.
 								</p>
 							</div>
@@ -154,8 +171,8 @@
 								Wrap
 							</button>
 						{:else}
-							<button type="button" class="btn variant-filled-warning btn-xl my-4" on:click={() => doWrap()}>
-								{wrapping ? 'Wrap' : 'Unwrap'}
+							<button type="button" class="btn variant-filled-warning btn-xl my-4" on:click={() => doUnwrap()}>
+								Unwrap
 							</button>
 						{/if}
 					{/if}
