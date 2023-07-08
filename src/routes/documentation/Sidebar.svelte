@@ -46,7 +46,7 @@
 	<nav class="list-nav">
 		<ul>
 			<li>
-				<a href="/documentation/gas-savings#infinity-approve"
+				<a href="/documentation/gas-savings"
 					><span class="flex-auto">Infinity approve</span>
 				</a>
 			</li>
