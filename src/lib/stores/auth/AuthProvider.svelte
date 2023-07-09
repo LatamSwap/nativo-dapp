@@ -43,14 +43,23 @@
 
 		console.log(walletAccount, walletState);
 		$activeChain = walletState[0].chains[0].id as Chains;
+		
+		let chain = chainsMetadata[Chains.PatexTestnet];
+		if ($activeChain == 0x1f) {
+			chain = chainsMetadata[Chains.RSKtestnet];
+		} else if ($activeChain == 0x7303c) {
+			chain = chainsMetadata[Chains.PatexTestnet];
+		} else if ($activeChain == 0x82751) {
+			chain = chainsMetadata[Chains.ScrollAlphaTestnet];
+		} else if ($activeChain == 0x33) {
+			chain = chainsMetadata[Chains.XDCApothemTestnet];
+		}
 
 		$walletClient = createWalletClient({
 			transport: custom(window.ethereum),
-			chain: $activeChain == 0x1f ? chainsMetadata[Chains.RSKtestnet] : chainsMetadata[Chains.PatexTestnet],
+			chain,
 		});
-		window.$walletClient = $walletClient;
 
-		// token: 0x2A955Cd173b851bac5Be79BdC8Cbc5D5a30e1d8d
 	}
 
 	onMount(() => {

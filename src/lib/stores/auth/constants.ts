@@ -62,6 +62,41 @@ const PatexTestnet = {
 	testnet: true
 };
 
+const ScrollAlphaTestnet = {
+	id: 534353,
+	// chainId: 31,
+	name: 'Scroll Alpha Testnet',
+	network: 'Scroll Alpha Testnet',
+	token: 'ETH',
+	nativeCurrency: {
+		name: 'Testnet Ether',
+		symbol: 'ETH',
+		decimals: 18
+	},
+	rpcUrls: {
+		default: { http: ['https://scroll-alpha-public.unifra.io	'] },
+		public: { http: ['https://scroll-alpha-public.unifra.io	'] }
+	},
+	testnet: true
+};
+
+const XDCApothemTestnet = {
+	id: 33,
+	// chainId: 31,
+	name: 'XDCApothem Testnet',
+	network: 'XDCApothem Testnet',
+	token: 'XDC',
+	nativeCurrency: {
+		name: 'Testnet XDC',
+		symbol: 'XDC',
+		decimals: 18
+	},
+	rpcUrls: {
+		default: { http: ['https://rpc.apothem.network'] },
+		public: { http: ['https://rpc.apothem.network'] }
+	},
+	testnet: true
+};
 /**
  *
  */
@@ -69,5 +104,7 @@ const PatexTestnet = {
 export const chainsMetadata = {
 	[Chains.FUJI]: avalancheFuji,
 	[Chains.RSKtestnet]: RSKtestnet,
-	[Chains.PatexTestnet]: PatexTestnet
+	[Chains.PatexTestnet]: PatexTestnet,
+	[Chains.ScrollAlphaTestnet]: ScrollAlphaTestnet,
+	[Chains.XDCApothemTestnet]: XDCApothemTestnet
 };

@@ -6,7 +6,9 @@ import type { Chain } from 'viem/chains';
 export enum Chains {
 	FUJI = '0xa869',
 	RSKtestnet = '0x1f',
-	PatexTestnet = '0x7303c'
+	PatexTestnet = '0x7303c',
+	ScrollAlphaTestnet = '0x82751',
+	XDCApothemTestnet = '0x33'
 }
 
 export type ChainsMetadata = Record<Chains, Chain>;
