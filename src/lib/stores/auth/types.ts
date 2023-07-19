@@ -8,7 +8,8 @@ export enum Chains {
 	RSKtestnet = '0x1f',
 	PatexTestnet = '0x7303c',
 	ScrollAlphaTestnet = '0x82751',
-	XDCApothemTestnet = '0x33'
+	XDCApothemTestnet = '0x33',
+	MantleTestnet = '0x1389'
 }
 
 export type ChainsMetadata = Record<Chains, Chain>;

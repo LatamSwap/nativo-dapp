@@ -53,6 +53,8 @@
 			chain = chainsMetadata[Chains.ScrollAlphaTestnet];
 		} else if ($activeChain == 0x33) {
 			chain = chainsMetadata[Chains.XDCApothemTestnet];
+		} else if ($activeChain == 0x1389) {
+			chain = chainsMetadata[Chains.MantleTestnet];
 		}
 
 		$walletClient = createWalletClient({

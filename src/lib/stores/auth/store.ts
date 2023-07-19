@@ -10,12 +10,14 @@ export const walletClient = writable<WalletClient | undefined>();
 
 export const wrongNetwork = derived([activeChain], ([$activeChain], set) => {
 	console.log($activeChain)
-	set($activeChain != '0x1f' && $activeChain != '0x7303c' && $activeChain != '0x82751' && $activeChain != '0x33');
+	set($activeChain != '0x1f' && $activeChain != '0x7303c' && $activeChain != '0x82751' && $activeChain != '0x33' && $activeChain != '0x1389');
 });
 
 export const contractAddress = derived([activeChain], ([$activeChain], set) => {
-	// scroll 534353 (0x82751)
-	if ($activeChain == '0x82751') {
+	if($activeChain == '0x1389') {
+		set("0x556Ba000FdF0553b79aF7815e98961Ddf4eCf84F")
+	} else if ($activeChain == '0x82751') {
+		// scroll 534353 (0x82751)
 		set("0x2Ca416EA2F4bb26ff448823EB38e533b60875C81")
 	} else if($activeChain == '0x33') {
 		// set("xdc76bd832F14a4eB4fcFd1487E0e8f10b7407eabF4")
@@ -26,7 +28,9 @@ export const contractAddress = derived([activeChain], ([$activeChain], set) => {
 });
 
 export const tokenSymbol = derived([activeChain], ([$activeChain], set) => {
-	if ($activeChain == '0x1f') {
+	if ($activeChain == '0x1389') {
+		set("BIT");
+	} else if ($activeChain == '0x1f') {
 		set('RBTC');
 	} else if ($activeChain == '0x33') {
 		set('XDC');

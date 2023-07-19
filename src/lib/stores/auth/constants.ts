@@ -14,7 +14,7 @@ const RSKtestnet = {
 		decimals: 18
 	},
 	rpcUrls: {
-		default: { http: ['https://test-rpc.patex.io	'] },
+		default: { http: ['https://test-rpc.patex.io'] },
 		public: { http: ['https://test-rpc.patex.io	'] }
 	},
 	/*
@@ -32,20 +32,20 @@ const RSKtestnet = {
 	testnet: true
 };
 
-const PatexTestnet = {
-	id: 471100,
-	// chainId: 31,
-	name: 'Patex Testnet',
-	network: 'Patex Testnet',
-	token: 'ETH',
+const MantleTestnet = {
+	id: 5001,
+	// chainId: http://localhost:5173/,
+	name: 'Mantle Testnet',
+	network: 'Mantle Testnet',
+	token: 'BIT',
 	nativeCurrency: {
-		name: 'Testnet Ether',
-		symbol: 'ETH',
+		name: 'Testnet',
+		symbol: 'BIT',
 		decimals: 18
 	},
 	rpcUrls: {
-		default: { http: ['https://test-rpc.patex.io'] },
-		public: { http: ['https://test-rpc.patex.io'] }
+		default: { http: ['https://rpc.testnet.mantle.xyz'] },
+		public: { http: ['https://rpc.testnet.mantle.xyz'] }
 	},
 	/*
 	 "blockExplorers": {
@@ -104,7 +104,7 @@ const XDCApothemTestnet = {
 export const chainsMetadata = {
 	[Chains.FUJI]: avalancheFuji,
 	[Chains.RSKtestnet]: RSKtestnet,
-	[Chains.PatexTestnet]: PatexTestnet,
+	[Chains.MantleTestnet]: MantleTestnet,
 	[Chains.ScrollAlphaTestnet]: ScrollAlphaTestnet,
 	[Chains.XDCApothemTestnet]: XDCApothemTestnet
 };
