@@ -161,7 +161,7 @@
 									Nativo is working on 
 									<a href="https://chainlist.org/chain/31" class="underline font-bold" target="_blank">RSKTestnet</a>,
 									<a href="https://chainlist.org/chain/534353" class="underline font-bold" target="_blank">Scroll Alpha</a>, 
-									<a href="https://chainlist.org/chain/471100" class="underline font-bold" target="_blank">Patex Testnet</a> and
+									<a href="https://chainlist.org/chain/5001" class="underline font-bold" target="_blank">Mantle Testnet</a> and
 									<a href="https://chainlist.org/chain/51" class="underline font-bold" target="_blank">XDC Apothem Testnet</a> Please switch your wallet
 									to one of those networks.
 								</p>
